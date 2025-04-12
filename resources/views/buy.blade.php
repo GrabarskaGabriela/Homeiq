@@ -60,7 +60,7 @@
 <!-- Sekcja ogłoszeń -->
 <section class="listings-section py-5 bg-light">
     <div class="container">
-        <h2 class="text-center mb-5">Oferty wynajmu nieruchomości</h2>
+        <h2 class="text-center mb-5">Nieuchomości na sprzedaż</h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
             <div class="col">
                 <div class="card h-100 shadow-sm">
@@ -68,7 +68,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Nieruchomość Cosikowa</h5>
                         <p class="card-text">Opis nieruchomości lub podstawowe informacje...</p>
-                        <a href="oferta.blade.php" class="btn btn-primary">Przejdź do oferty</a>
+                        <a href="offer.blade.php" class="btn btn-primary">Przejdź do oferty</a>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Nieruchomość Cosikowa</h5>
                         <p class="card-text">Opis nieruchomości lub podstawowe informacje...</p>
-                        <a href="oferta.blade.php" class="btn btn-primary">Przejdź do oferty</a>
+                        <a href="offer.blade.php" class="btn btn-primary">Przejdź do oferty</a>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Nieruchomość Cosikowa</h5>
                         <p class="card-text">Opis nieruchomości lub podstawowe informacje...</p>
-                        <a href="oferta.blade.php" class="btn btn-primary">Przejdź do oferty</a>
+                        <a href="offer.blade.php" class="btn btn-primary">Przejdź do oferty</a>
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Nieruchomość Cosikowa</h5>
                         <p class="card-text">Opis nieruchomości lub podstawowe informacje...</p>
-                        <a href="oferta.blade.php" class="btn btn-primary">Przejdź do oferty</a>
+                        <a href="offer.blade.php" class="btn btn-primary">Przejdź do oferty</a>
                     </div>
                 </div>
             </div>

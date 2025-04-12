@@ -1,6 +1,6 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "Homeiq",
+    "name": "gabriela/homeiq",
     "type": "project",
     "description": "Project of database management system of real estate buying/selling platform.",
     "keywords": ["laravel", "framework"],

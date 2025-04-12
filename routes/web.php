@@ -17,6 +17,23 @@ Route::get('/terms', function () {
     return view('terms');
 })->name('terms');
 
+Route::get('/buy', function () {
+    return view('buy');
+})->name('buy');
+Route::get('/rent', function () {
+    return view('rent');
+})->name('rent');
+Route::get('/offers.create', function () {
+    return view('offers.create');
+})->name('offers.create');
+Route::get('/my.offers', function () {
+    return view('my.offers');
+})->name('my.offers');
+
+Route::get('/help', function () {
+    return view('help');
+})->name('help');
+
 // Authenticated routes
 Route::middleware(['auth', 'verified'])->group(function () {
     // Dashboard

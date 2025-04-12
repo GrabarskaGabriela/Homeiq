@@ -66,7 +66,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Nieruchomość Cosikowa</h5>
                         <p class="card-text">Opis nieruchomości lub podstawowe informacje...</p>
-                        <a href="oferta.blade.php" class="btn btn-primary">Przejdź do oferty</a>
+                        <a href="offer.blade.php" class="btn btn-primary">Przejdź do oferty</a>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Nieruchomość Cosikowa</h5>
                         <p class="card-text">Opis nieruchomości lub podstawowe informacje...</p>
-                        <a href="oferta.blade.php" class="btn btn-primary">Przejdź do oferty</a>
+                        <a href="offer.blade.php" class="btn btn-primary">Przejdź do oferty</a>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Nieruchomość Cosikowa</h5>
                         <p class="card-text">Opis nieruchomości lub podstawowe informacje...</p>
-                        <a href="oferta.blade.php" class="btn btn-primary">Przejdź do oferty</a>
+                        <a href="offer.blade.php" class="btn btn-primary">Przejdź do oferty</a>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Nieruchomość Cosikowa</h5>
                         <p class="card-text">Opis nieruchomości lub podstawowe informacje...</p>
-                        <a href="oferta.blade.php" class="btn btn-primary">Przejdź do oferty</a>
+                        <a href="offer.blade.php" class="btn btn-primary">Przejdź do oferty</a>
                     </div>
                 </div>
             </div>

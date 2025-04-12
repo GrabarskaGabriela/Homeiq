@@ -21,7 +21,7 @@
             <h5 class="card-title">Oferta 1</h5>
             <p class="card-text">Krótki opis oferty...</p>
             <div class="mt-auto d-flex justify-content-between">
-              <a href="oferta.blade.php" class="btn btn-primary btn-sm">Przejdź do oferty</a>
+              <a href="offer.blade.php" class="btn btn-primary btn-sm">Przejdź do oferty</a>
               <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
                 Skasuj ofertę
               </button>
@@ -37,7 +37,7 @@
             <h5 class="card-title">Oferta 2</h5>
             <p class="card-text">Krótki opis oferty...</p>
             <div class="mt-auto d-flex justify-content-between">
-              <a href="oferta.blade.php" class="btn btn-primary btn-sm">Przejdź do oferty</a>
+              <a href="offer.blade.php" class="btn btn-primary btn-sm">Przejdź do oferty</a>
               <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
                 Skasuj ofertę
               </button>
