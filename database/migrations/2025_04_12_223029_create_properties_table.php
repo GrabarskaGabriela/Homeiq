@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->string('State', 50);
-            $table->string('Region', 50);
-            $table->string('Town', 50);
-            $table->string('Street', 50);
-            $table->integer('Number');
-            $table->enum('Type', ['House', 'Apartment', 'Premises_Utility']);
-            $table->decimal('Surface', 6, 0);
-            $table->integer('Number_of_rooms');
-            $table->integer('Floor')->nullable();
-            $table->string('Construction_type', 50);
-            $table->string('Technical_condition', 50);
-            $table->string('Furnishings', 50);
+            $table->string('state', 50);
+            $table->string('segion', 50);
+            $table->string('sown', 50);
+            $table->string('street', 50);
+            $table->integer('sumber');
+            $table->enum('type', ['house', 'apartment', 'premises_Utility']);
+            $table->decimal('surface', 6, 0);
+            $table->integer('number_of_rooms');
+            $table->integer('floor')->nullable();
+            $table->string('construction_type', 50);
+            $table->string('technical_condition', 50);
+            $table->string('furnishings', 50);
             $table->timestamps(); // dodane timestamps dla Laravel
         });
     }

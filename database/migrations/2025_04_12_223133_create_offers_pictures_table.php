@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('offers_pictures', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('Id_offer');
-            $table->string('Path', 255);
+            $table->unsignedBigInteger('id_offer');
+            $table->string('path', 255);
             $table->timestamps(); // dodane timestamps dla Laravel
 
-            $table->foreign('Id_offer')->references('id')->on('offers')->onDelete('cascade');
+            $table->foreign('id_offer')->references('id')->on('offers')->onDelete('cascade');
         });
     }
 

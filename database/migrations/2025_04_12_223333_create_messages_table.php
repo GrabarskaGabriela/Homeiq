@@ -12,17 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('messages', function (Blueprint $table) {
-            $table->id('Id'); // Zachowane oryginalne nazewnictwo dla kolumny id
-            $table->unsignedBigInteger('Id_sender');
-            $table->unsignedBigInteger('Id_recipient');
-            $table->unsignedBigInteger('Id_offer');
-            $table->text('Text');
-            $table->date('Sent_date');
+            $table->id('id'); // Zachowane oryginalne nazewnictwo dla kolumny id
+            $table->unsignedBigInteger('id_sender');
+            $table->unsignedBigInteger('id_recipient');
+            $table->unsignedBigInteger('id_offer');
+            $table->text('text');
+            $table->date('sent_date');
             $table->timestamps(); // dodane timestamps dla Laravel
 
-            $table->foreign('Id_sender')->references('user_id')->on('users')->onDelete('cascade');
-            $table->foreign('Id_recipient')->references('user_id')->on('users')->onDelete('cascade');
-            $table->foreign('Id_offer')->references('id')->on('offers')->onDelete('cascade');
+            $table->foreign('id_sender')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_recipient')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_offer')->references('id')->on('offers')->onDelete('cascade');
         });
     }
 

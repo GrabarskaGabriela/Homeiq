@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('Id_owner');
-            $table->unsignedBigInteger('Id_property');
-            $table->string('Offer_title', 150);
-            $table->text('Description');
-            $table->integer('Price');
-            $table->integer('Deposit');
-            $table->decimal('Rent', 10, 0);
+            $table->unsignedBigInteger('id_owner');
+            $table->unsignedBigInteger('id_property');
+            $table->string('offer_title', 150);
+            $table->text('description');
+            $table->integer('price');
+            $table->integer('deposit');
+            $table->decimal('rent', 10, 0);
             $table->timestamps(); // dodane timestamps dla Laravel
 
-            $table->foreign('Id_owner')->references('user_id')->on('users')->onDelete('cascade');
-            $table->foreign('Id_owner')->references('id')->on('properties')->onDelete('cascade');
+            $table->foreign('id_owner')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_property')->references('id')->on('properties')->onDelete('cascade');
         });
     }
 
