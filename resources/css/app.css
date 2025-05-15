@@ -1,0 +1,79 @@
+@import 'bootstrap/dist/css/bootstrap.css';
+
+body {
+    background-image: url('/images/includes/homeiq-bg.jpg');
+    background-blend-mode: multiply;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    /* Flexbox layout dla stopki na dole */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Główna zawartość zajmuje dostępną przestrzeń */
+main {
+    flex-grow: 1;
+}
+
+/* Przyciski Bootstrapowe */
+.btn {
+    background-color: dimgrey;
+    border-color: dimgray;
+}
+
+footer {
+    flex-shrink: 0;
+    background-color: #404040;
+}
+
+footer h5 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+footer h5::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background: #0d6efd;
+}
+
+footer .nav-link {
+    padding: 0.25rem 0;
+    color: #adb5bd !important;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+footer .nav-link:hover {
+    color: #0d6efd !important;
+    padding-left: 5px;
+}
+
+.social-icons a {
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+    color: #0d6efd !important;
+}
+
+/* Styl paska bocznego dla mniejszych ekranów */
+@media (max-width: 991px) {
+    .sidebar {
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+    }
+}

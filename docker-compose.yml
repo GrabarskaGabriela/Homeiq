@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8080:80"
+        volumes:
+            - .:/var/www/html
+            - ./docker/apache.conf:/etc/apache2/sites-available/000-default.conf
+        environment:
+            - APP_ENV=local
+            - APP_DEBUG=true
+            - DB_HOST=db
+            - DB_DATABASE=homeiq
+            - DB_USERNAME=homeiquser
+            - DB_PASSWORD=password
+        depends_on:
+            - db
+
+    db:
+        image: mysql:8.0
+        environment:
+            - MYSQL_DATABASE=homeiq
+            - MYSQL_USER=homeiquser
+            - MYSQL_PASSWORD=password
+            - MYSQL_ROOT_PASSWORD=root
+        volumes:
+            - mysql_data:/var/lib/mysql
+        ports:
+            - "3306:3306"
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        environment:
+            - PMA_HOST=db
+            - PMA_PORT=3306
+            - PMA_ARBITRARY=1
+            - MYSQL_ROOT_PASSWORD=root
+        ports:
+            - "8081:80"
+        depends_on:
+            - db
+        restart: always
+
+volumes:
+    mysql_data:
