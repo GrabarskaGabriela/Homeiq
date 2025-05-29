@@ -13,19 +13,20 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->string('state', 50);
-            $table->string('segion', 50);
+            $table->string('country', 50);
+            $table->string('region', 50);
             $table->string('town', 50);
+            $table->string('postal_code', 10);
             $table->string('street', 50);
-            $table->integer('sumber');
-            $table->enum('type', ['house', 'apartment', 'premises_Utility']);
-            $table->decimal('surface', 6, 0);
+            $table->string('building_number',10); //Zmiana z int ponieważ czasami występują numery z literami np. 14A itd
+            $table->integer('apartment_number')->nullable();
+            $table->enum('type', ['Dom', 'Mieszkanie', 'Lokal użytkowy']);
+            $table->decimal('surface', 6, 2);
             $table->integer('number_of_rooms');
-            $table->integer('floor')->nullable();
-            $table->string('construction_type', 50);
-            $table->string('technical_condition', 50);
-            $table->string('furnishings', 50);
-            $table->timestamps(); // dodane timestamps dla Laravel
+            $table->integer('floor');
+            $table->enum('technical_condition', ['Do remontu', 'Do kapitalnego remontu', 'Budynek w stanie surowym', 'Gotowy do zamieszkania']);
+            $table->enum('furnishings', ['Nieumeblowane', 'Częściowo umeblowane', 'W pełni umeblowane']);
+            $table->timestamps();
         });
     }
 

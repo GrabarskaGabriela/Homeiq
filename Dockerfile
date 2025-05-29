@@ -40,4 +40,11 @@ RUN chown -R www-data:www-data /var/www/html \
 # Konfiguracja PHP
 COPY docker/php.ini /usr/local/etc/php/conf.d/php.ini
 
+# Zainstaluj Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Zainstaluj Node.js i npm
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs
+
 WORKDIR /var/www/html

@@ -29,10 +29,10 @@
 
                 <!-- First Name -->
                 <div class="mb-3">
-                    <label for="firstName" class="form-label">Imię</label>
-                    <input type="text" class="form-control @error('firstName') is-invalid @enderror"
-                           id="firstName" name="firstName"
-                           value="{{ old('firstName') }}"
+                    <label for="first_name" class="form-label">Imię</label>
+                    <input type="text" class="form-control @error('first_name') is-invalid @enderror"
+                           id="first_name" name="first_name"
+                           value="{{ old('first_name') }}"
                            placeholder="Wpisz swoje imię" required>
                     @error('firstName')
                     <div class="invalid-feedback">
@@ -43,12 +43,12 @@
 
                 <!-- Last Name -->
                 <div class="mb-3">
-                    <label for="lastName" class="form-label">Nazwisko</label>
-                    <input type="text" class="form-control @error('lastName') is-invalid @enderror"
-                           id="lastName" name="lastName"
-                           value="{{ old('lastName') }}"
+                    <label for="last_name" class="form-label">Nazwisko</label>
+                    <input type="text" class="form-control @error('last_name') is-invalid @enderror"
+                           id="last_name" name="last_name"
+                           value="{{ old('last_name') }}"
                            placeholder="Wpisz swoje nazwisko" required>
-                    @error('lastName')
+                    @error('last_name')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
@@ -110,7 +110,7 @@
                     <input type="checkbox" class="form-check-input @error('terms') is-invalid @enderror"
                            id="terms" name="terms" required>
                     <label class="form-check-label" for="terms">
-                        Akceptuję <a href="{{ route('terms') }}">regulamin</a> serwisu
+                        Akceptuję regulamin serwisu
                     </label>
                     @error('terms')
                     <div class="invalid-feedback">

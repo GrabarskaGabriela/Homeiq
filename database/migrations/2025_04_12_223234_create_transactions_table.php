@@ -6,28 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_property');
-            $table->unsignedBigInteger('id_owner');
-            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('property_id');
+            $table->unsignedBigInteger('owner_id');
+            $table->unsignedBigInteger('user_id');
             $table->date('transaction_date');
-            $table->timestamps(); // dodane timestamps dla Laravel
+            $table->timestamps();
 
-            $table->foreign('id_property')->references('id')->on('properties')->onDelete('cascade');
-            $table->foreign('id_owner')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');
+            $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('transactions');

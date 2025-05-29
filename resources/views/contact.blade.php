@@ -26,18 +26,18 @@
 
 <main class="container mt-3">
     <div class="card shadow-sm border-dark">
-        <div class="card-header text-white" style="background: linear-gradient(135deg, #2b2b2b 0%, #3c3c3c 100%);">
+        <div class="card-header text-color" style="background: linear-gradient(135deg, #2b2b2b 0%, #3c3c3c 100%);">
             <h2 class="mb-0">Kontakt z administracją</h2>
         </div>
         <div class="card-body">
             <p>Masz pytania, problemy lub sugestie? Napisz do nas – chętnie pomożemy!</p>
-            <p class="text-start text-color mb-4 fst-italic">
+            <p class="text-start text-color_2 mb-4 fst-italic">
                 Dział Obsługi Klienta <br>
                 Kontakt w dni robocze w godz. 9-17.<br>
                 tel.: +48 123-456-789<br>
                 e-mail: support@homeiq.pl
             </p>
-            <p class="text-start text-color mb-4 fst-italic">Wydawca portalu<br>
+            <p class="text-start text-color_2 mb-4 fst-italic">Wydawca portalu<br>
                 Homeiq - Nieruchomości,<br>
                 ul. Sejmowa 5A, 59-220 Legnica<br>
                 REGON: 111111111, NIP: 111-11-11-111
@@ -55,7 +55,7 @@
                     <label for="message" class="form-label">Wiadomość</label>
                     <textarea class="form-control" id="message" name="message" rows="5" placeholder="Napisz swoją wiadomość"></textarea>
                 </div>
-                <button type="submit" class="btn text-white"  style="background: linear-gradient(135deg, #2b2b2b 0%, #3c3c3c 100%); border-radius: 30px;">Wyślij wiadomość</button>
+                <button type="submit" class="btn btn-gradient text-color"  style="background: linear-gradient(135deg, #2b2b2b 0%, #3c3c3c 100%); border-radius: 30px;">Wyślij wiadomość</button>
             </form>
         </div>
     </div>

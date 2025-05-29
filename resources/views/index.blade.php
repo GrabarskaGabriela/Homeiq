@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ __('messages.title.faily') }}</title>
+    <title>Homeiq</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @include('includes.navbar')
 </head>
 <body class="text-white">
 <main>
     <div class="page-container">
-        @include('includes.navbar')
 
         <section class="hero py-5 text-color text-center">
             <div class="container">
                 <h1 class="display-4 fw-bold mb-4">Tysiące chomiczych norek na wyciągnięcie łapki.</h1>
-                <p class="lead mb-4">Na sprzedaż i na wynajem</p>
+                <p class="lead mb-4">Znajdź idealną nieruchomość dla siebie - na sprzedaż i na wynajem</p>
             </div>
         </section>
-        <section class="py-5 text-white" style="background-color: #404040;">
+        <section class="py-5 text-white">
             <div class="container text-center">
                 <div class="row justify-content-center mb-4">
                     <div class="col-4 col-md-2">
@@ -42,16 +42,17 @@
 
                 <div class="info-section mt-4">
                     <div id="people" class="info-text active">
-                        <h4>Kupuj</h4>
-                        <p>Tu będzie opis</p>
+                        <h4>Znajdź swoją wymarzoną norkę</h4>
+                        <p>Przeglądaj tysiące ofert mieszkań, domów i lokali. Nasze zaawansowane filtry pomogą Ci znaleźć idealne miejsce do życia. Od przytulnych kawalerek po przestronne rodzinne gniazdka - wszystko w zasięgu łapki!
+                        </p>
                     </div>
                     <div id="calendar" class="info-text d-none">
-                        <h4>Wynajmuj</h4>
-                        <p>Tu będzie opis</p>
+                        <h4>Wynajmuj bez zmartwień</h4>
+                        <p>Szukasz tymczasowego schroniska? Sprawdź naszą ofertę wynajmu! Weryfikowani właściciele, przejrzyste warunki i wsparcie na każdym etapie. Twoja nowa norka czeka już na Ciebie!</p>
                     </div>
                     <div id="car" class="info-text d-none">
-                        <h4>Sprzedawaj</h4>
-                        <p>Tu będzie opis</p>
+                        <h4>Sprzedawaj z łatwością</h4>
+                        <p>Czas zmienić norkę? Pomożemy Ci sprzedać swoją nieruchomość szybko i korzystnie. Profesjonalne zdjęcia, skuteczne ogłoszenia i pełne wsparcie prawne. Twoja norka znajdzie nowego właściciela w mgnieniu oka!</p>
                     </div>
                 </div>
             </div>

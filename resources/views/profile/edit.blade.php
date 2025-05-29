@@ -10,10 +10,8 @@
 <body class="d-flex flex-column min-vh-100">
 @include('includes.navbar')
 
-<main class="container flex-grow-1 my-5">
-    <div class="row">
-        @include('includes.settings_menu')
-
+<main class="container flex-grow-1 my-1">
+    <div class="row justify-content-center">
         <!-- Główna zawartość -->
         <div class="col-md-9">
             <!-- Sekcja danych osobowych -->

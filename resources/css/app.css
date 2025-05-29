@@ -13,21 +13,155 @@ body {
     min-height: 100vh;
     margin: 0;
 }
+/*Kolor tekstu */
+.text-color
+{
+    color: whitesmoke;
+}
+.text-color_2
+{
+    color: #6f4e37;
+}
+/*Navbar */
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.navbar {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    top: 0;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
 
+/*Guziczki w navbarze*/
+.btn-gradient-nav {
+    background: linear-gradient(to right, 	#c0a891, #b6977d) !important;
+    color: whitesmoke !important;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-gradient-nav:hover {
+    background: linear-gradient(to right, #e1c6a9, #ecbfa2) !important;
+}
+/**Guziczki w main*/
+.btn-primary {
+    background: linear-gradient(to right, #e1c6a9, #ecbfa2) !important;
+    border: none;
+    border-radius: 12px;
+    padding: 0.7rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(18, 67, 105, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(18, 67, 105, 0.4);
+    background: linear-gradient(to right, #e1c6a9, #ecbfa2) !important;
+}
+.btn-gradient
+{
+    background: linear-gradient(to right, 	#c0a891, #b6977d) !important;
+    color: whitesmoke !important;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-gradient:hover
+{
+    background: linear-gradient(to right, #e1c6a9, #ecbfa2) !important;
+}
+.btn-gradient-danger
+{
+    background: linear-gradient(135deg, #ff6b6b, #ff4d4d) !important;
+    color: white !important;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255, 77, 77, 0.2);
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+.btn-gradient-danger:hover
+{
+    background: linear-gradient(135deg, #ff8080, #ff6666) !important;
+}
+
+.btn-gradient-secondary
+{
+    background: linear-gradient(to right, #bab6b5, #b5a49e) !important;
+    color: whitesmoke !important;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+.btn-gradient-secondary:hover
+{
+    background: linear-gradient(to right, #9e9a99, #8c807d) !important;
+}
+.shadow-color
+{
+    background: linear-gradient(to right, 	#c0a891, #b6977d) !important;
+}
+
+.card
+{
+    padding: 15px;
+    border-radius: 12px 12px 0 0;
+}
+.shadow-s {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+}
+.card-header {
+    background: linear-gradient(to right, 	#c0a891, #b6977d) !important;
+    padding: 15px;
+    border-radius: 12px 12px 0 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: whitesmoke !important;
+}
 /* Główna zawartość zajmuje dostępną przestrzeń */
 main {
     flex-grow: 1;
 }
 
-/* Przyciski Bootstrapowe */
-.btn {
-    background-color: dimgrey;
-    border-color: dimgray;
-}
-
 footer {
     flex-shrink: 0;
-    background-color: #404040;
+    background-color: #121929;
 }
 
 footer h5 {

@@ -13,9 +13,9 @@
     <div class="row justify-content-center">
         <div class="col-lg-9">
             <div class="card shadow shadow-sm border-0 rounded-4 overflow-hidden">
-                <div class="card-body text-color">
+                <div class="card-body text-color_2">
                     <h1 class="card-title text-center mb-5 display-5 fw-bold">Centrum pomocy</h1>
-                    <p class="text-center text-color mb-4 fst-italic">Strona jest w trakcie przebudowy – dziękujemy za cierpliwość!</p>
+                    <p class="text-center text-color_2 mb-4 fst-italic">Strona jest w trakcie przebudowy – dziękujemy za cierpliwość!</p>
 
                     <div class="mb-5">
                         <h3 class="mb-4">Najczęściej zadawane pytania</h3>
@@ -23,11 +23,11 @@
                             @foreach ([
                                 ['title' => 'Jak zmienić zdjęcie profilowe?', 'content' => 'Przejdź do swojego profilu, kliknij przycisk "Edytuj zdjęcie" i wybierz nowe zdjęcie z dysku.'],
                                 ['title' => 'Jak zaktualizować dane profilowe?', 'content' => 'W sekcji "Informacje" na swoim profilu możesz edytować wszystkie dane. Pamiętaj aby zapisać zmiany.'],
-                                ['title' => 'Jak skontaktować się z supportem?', 'content' => 'Napisz do nas na adres: <a href="mailto:support@faily.pl" class="text-color text-decoration-underline">support@faily.pl</a>.']
+                                ['title' => 'Jak skontaktować się z supportem?', 'content' => 'Napisz do nas na adres: <a href="mailto:support@faily.pl" class="text-color_2 text-decoration-underline">support@faily.pl</a>.']
                             ] as $index => $faq)
-                                <div class="accordion-item bg-light text-color border-0 mb-3 rounded-3 shadow-sm">
+                                <div class="accordion-item bg-light text-color_2 border-0 mb-3 rounded-3 shadow-sm">
                                     <h2 class="accordion-header" id="heading{{ $index }}">
-                                        <button class="accordion-button bg-light text-color collapsed" type="button"
+                                        <button class="accordion-button bg-light text-color_2 collapsed" type="button"
                                                 data-bs-toggle="collapse"
                                                 data-bs-target="#collapse{{ $index }}"
                                                 aria-expanded="false"
@@ -59,7 +59,7 @@
                     </div>
                     <div class="text-center mt-5">
                         <h3 class="mb-3">Potrzebujesz dodatkowej pomocy?</h3>
-                        <a href="/contact" class="btn border-0 px-4 py-2 fw-semibold text-white"
+                        <a href="/contact" class="btn btn-gradient border-0 px-4 py-2 fw-semibold text-color"
                            style="background: linear-gradient(135deg, #2b2b2b 0%, #3c3c3c 100%); border-radius: 30px;">
                             Napisz do nas
                         </a>

@@ -3,51 +3,326 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Homeiq</title>
+    <title>Nieruchomości na sprzedaż - Homeiq</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        .search-section {
+            padding: 3rem 0;
+        }
+
+        .main-container {
+            padding: 2rem 0;
+        }
+
+        .offer-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+            animation: slideUp 0.6s ease-out;
+            position: relative;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(18, 67, 105, 0.15);
+            border-color: rgba(18, 67, 105, 0.3);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .property-image {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .offer-card:hover .property-image {
+            transform: scale(1.05);
+        }
+
+        .no-image {
+            height: 220px;
+            background: linear-gradient(135deg, rgba(18, 67, 105, 0.1), rgba(102, 126, 234, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #124369;
+            font-size: 2rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .offer-title {
+            color: #124369;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+            text-decoration: none;
+        }
+
+        .offer-title:hover {
+            color: #1e5a8a;
+            text-decoration: none;
+        }
+
+        .offer-badges {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .badge-type {
+            background: linear-gradient(135deg, #124369, #1e5a8a);
+            color: white;
+        }
+
+        .badge-offer {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+        }
+
+        .location-info {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .property-specs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .spec-item {
+            background: rgba(18, 67, 105, 0.1);
+            padding: 0.4rem 0.8rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            color: #124369;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .price-section {
+            background: linear-gradient(135deg, rgba(18, 67, 105, 0.05), rgba(102, 126, 234, 0.05));
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(18, 67, 105, 0.1);
+        }
+
+        .price-highlight {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #124369;
+            margin: 0;
+        }
+
+        .price-additional {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        .offer-description {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .card-footer {
+            background: rgba(248, 250, 252, 0.8);
+            border-top: 1px solid rgba(18, 67, 105, 0.1);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: #124369;
+            border: none;
+            border-radius: 12px;
+            padding: 0.7rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(18, 67, 105, 0.3);
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(18, 67, 105, 0.4);
+            background: linear-gradient(135deg, #124369, #1e5a8a);
+            color: white;
+            text-decoration: none;
+        }
+
+        .offer-date {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .empty-state {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 4rem 2rem;
+            text-align: center;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .empty-icon {
+            font-size: 5rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+        }
+
+        .empty-title {
+            color: #374151;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .empty-description {
+            color: #6b7280;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pagination {
+            margin-top: 3rem;
+        }
+
+        .page-link {
+            border-radius: 10px;
+            border: 1px solid rgba(18, 67, 105, 0.2);
+            color: #124369;
+            margin: 0 0.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            background: #124369;
+            color: white;
+            border-color: #124369;
+        }
+
+        .page-item.active .page-link {
+            background: #124369;
+            border-color: #124369;
+        }
+    </style>
     @include('includes.navbar')
 </head>
 <body>
 <!-- Sekcja wyszukiwania -->
 <section class="search-section py-5 text-white">
     <div class="container">
-        <h1 class="display-4 fw-bold mb-3 text-center">Znajdź swój wymarzony dom</h1>
-        <p class="lead mb-4 text-center">Tysiące ofert nieruchomości na wyciągnięcie ręki</p>
+        <h1 class="display-4 fw-bold mb-3 text-center">Nieruchomości na sprzedaż</h1>
+        <p class="lead mb-4 text-center">Znajdź idealną nieruchomość do kupna</p>
         <div class="card shadow p-4">
-            <form action="search.php" method="GET">
+            <form method="GET">
                 <div class="row g-3">
                     <div class="col-md-3">
                         <select class="form-select" name="type">
                             <option value="">Typ nieruchomości</option>
-                            <option value="mieszkanie">Mieszkanie</option>
-                            <option value="dom">Dom</option>
-                            <option value="dzialka">Działka</option>
+                            <option value="Dom" {{ request('type') == 'Dom' ? 'selected' : '' }}>Dom</option>
+                            <option value="Mieszkanie" {{ request('type') == 'Mieszkanie' ? 'selected' : '' }}>Mieszkanie</option>
+                            <option value="Lokal użytkowy" {{ request('type') == 'Lokal użytkowy' ? 'selected' : '' }}>Lokal użytkowy</option>
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <select class="form-select" name="transaction">
-                            <option value="">Typ transakcji</option>
-                            <option value="sprzedaz">Na sprzedaż</option>
-                            <option value="wynajem">Do wynajęcia</option>
+                        <input type="text" class="form-control" name="region"
+                               value="{{ request('region') }}" placeholder="Województwo">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" name="town"
+                               value="{{ request('town') }}" placeholder="Miejscowość">
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" name="technical_condition">
+                            <option value="">Stan techniczny</option>
+                            <option value="Do remontu" {{ request('technical_condition') == 'Do remontu' ? 'selected' : '' }}>Do remontu</option>
+                            <option value="Do kapitalnego remontu" {{ request('technical_condition') == 'Do kapitalnego remontu' ? 'selected' : '' }}>Do kapitalnego remontu</option>
+                            <option value="Budynek w stanie surowym" {{ request('technical_condition') == 'Budynek w stanie surowym' ? 'selected' : '' }}>Budynek w stanie surowym</option>
+                            <option value="Gotowy do zamieszkania" {{ request('technical_condition') == 'Gotowy do zamieszkania' ? 'selected' : '' }}>Gotowy do zamieszkania</option>
                         </select>
-                    </div>
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" name="location" placeholder="Lokalizacja">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" class="form-control" name="price_min" placeholder="Cena od">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" class="form-control" name="price_max" placeholder="Cena do">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" class="form-control" name="area_min" placeholder="Powierzchnia od m²">
                     </div>
                     <div class="col-md-2">
-                        <input type="number" class="form-control" name="area_max" placeholder="Powierzchnia do m²">
+                        <input type="number" class="form-control" name="surface_min"
+                               value="{{ request('surface_min') }}" placeholder="Powierzchnia od m²">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" class="form-control" name="surface_max"
+                               value="{{ request('surface_max') }}" placeholder="Powierzchnia do m²">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" class="form-control" name="rooms_min"
+                               value="{{ request('rooms_min') }}" placeholder="Liczba pokoi od">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" class="form-control" name="rooms_max"
+                               value="{{ request('rooms_max') }}" placeholder="Pokoje do">
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" name="furnishings">
+                            <option value="">Umeblowanie</option>
+                            <option value="Nieumeblowane" {{ request('furnishings') == 'Nieumeblowane' ? 'selected' : '' }}>Nieumeblowane</option>
+                            <option value="Częściowo umeblowane" {{ request('furnishings') == 'Częściowo umeblowane' ? 'selected' : '' }}>Częściowo umeblowane</option>
+                            <option value="W pełni umeblowane" {{ request('furnishings') == 'W pełni umeblowane' ? 'selected' : '' }}>W pełni umeblowane</option>
+                        </select>
                     </div>
                     <div class="col-md-1">
-                        <button type="submit" class="btn btn-primary w-100">Szukaj</button>
+                        <button type="submit" class="btn btn-gradient">Szukaj</button>
                     </div>
                 </div>
             </form>
@@ -57,42 +332,113 @@
 
 <!-- Sekcja ogłoszeń -->
 <section class="listings-section py-5 bg-light">
-    @forelse ($offerts as $offer)
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm text-color">
-                <a href="{{ route('events.show', $offer->id) }}">
-                    @if(isset($offer->photos) && count($offer->photos) > 0)
-                        <img src="{{ asset('storage/' . $offer->photos[0]->path) }}"
-                             alt="{{ $offer->title }}"
-                             class="card-img-top"
-                             style="height: 250px; object-fit: cover;">
-                    @else
-                        <img src="{{ asset('images/includes/brak_zdjecia.jpg') }}"
-                             alt="Brak zdjęcia"
-                             class="card-img-top w-100"
-                             style="height: 250px; object-fit: cover;">
-                    @endif
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">{{ $offer->title }}</h5>
-                    <p><strong>{{ __('messages.myevents.date') }}</strong> {{ \Carbon\Carbon::parse($offer->date)->format('d.m.Y H:i') }}</p>
-                    <p><strong>{{ __('messages.myevents.location') }}</strong> {{ $offer->location_name }}</p>
-                    <p class="text-truncate">{{ Str::limit($offer->description, 100) }}</p>
-                </div>
-                <div class="card-footer d-flex justify-content-between">
-                    <a href="{{ route('events.show', $offer->id) }}"  class="btn btn-gradient text-color">{{ __('messages.myevents.check') }}</a>
-                </div>
+    <div class="container main-container">
+        @if($offers->count() > 0)
+            <div class="offers-grid">
+                @foreach($offers as $offer)
+                    <div class="offer-card">
+                        <div class="position-relative">
+                            <a href="{{ route('properties.show', $offer->id) }}">
+                                @if($offer->pictures && $offer->pictures->count() > 0)
+                                    <img src="{{ asset('storage/' . $offer->pictures->first()->path) }}"
+                                         class="property-image"
+                                         alt="{{ $offer->offer_title }}">
+                                @else
+                                    <div class="no-image">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                @endif
+                            </a>
+                        </div>
+
+                        <div class="card-body">
+                            <a href="{{ route('properties.show', $offer->id) }}" class="offer-title">
+                                {{ Str::limit($offer->offer_title, 45) }}
+                            </a>
+
+                            <div class="offer-badges">
+                                <span class="badge badge-type">{{ $offer->property->type }}</span>
+                                <span class="badge badge-offer">{{ $offer->offer_type }}</span>
+                            </div>
+
+                            <div class="price-section">
+                                <div class="price-highlight">
+                                    {{ $offer->display_price }}
+                                </div>
+                            </div>
+
+                            <div class="location-info">
+                                <i class="fas fa-map-marker-alt"></i>
+                                {{ $offer->property->full_address }}
+                            </div>
+
+                            <div class="property-specs">
+                                <div class="spec-item">
+                                    <i class="fas fa-ruler-combined"></i>
+                                    {{ $offer->property->surface }} m²
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-door-open"></i>
+                                    {{ $offer->property->number_of_rooms }} pok.
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-layer-group"></i>
+                                    {{ $offer->property->floor }} p.
+                                </div>
+                            </div>
+
+                            <div class="offer-description">
+                                {{ Str::limit($offer->description, 100) }}
+                            </div>
+
+                            <div class="mb-2">
+                                <strong>Stan:</strong> {{ $offer->property->technical_condition }}
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="{{ route('properties.show', $offer->id) }}" class="btn btn-gradient">
+                                <i class="fas fa-eye me-2"></i>Zobacz szczegóły
+                            </a>
+                            <div class="offer-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                {{ $offer->created_at->format('d.m.Y') }}
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-        </div>
-    @empty
-        <div class="col-12">
-            <div class="alert alert-info">
-                {{ __('messages.myevents.noEvent') }}
+
+            <!-- Paginacja -->
+            @if($offers->hasPages())
+                <div class="d-flex justify-content-center">
+                    {{ $offers->appends(request()->query())->links() }}
+                </div>
+            @endif
+        @else
+            <div class="empty-state">
+                <div class="empty-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3 class="empty-title">Brak ogłoszeń</h3>
+                <p class="empty-description">
+                    Nie znaleziono nieruchomości na sprzedaż spełniających podane kryteria.
+                    Spróbuj zmienić parametry wyszukiwania.
+                </p>
             </div>
-        </div>
-    @endforelse
+        @endif
+    </div>
 </section>
+<script>
+    // Add staggered animation to cards
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.offer-card');
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+    });
+</script>
+
 @include('includes.footer')
 </body>
 </html>
-<?php $pdo=null; ?>

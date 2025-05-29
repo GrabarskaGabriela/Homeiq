@@ -6,24 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('offers_pictures', function (Blueprint $table) {
+        Schema::create('offer_pictures', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_offer');
+            $table->unsignedBigInteger('offer_id');
             $table->string('path', 255);
-            $table->timestamps(); // dodane timestamps dla Laravel
+            $table->timestamps();
 
-            $table->foreign('id_offer')->references('id')->on('offers')->onDelete('cascade');
+            $table->foreign('offer_id')->references('id')->on('offers')->onDelete('cascade');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('offers_pictures');
