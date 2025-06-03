@@ -18,7 +18,6 @@
                 {{ __('Zapomniałeś hasła? Podaj swój adres email, a wyślemy Ci link do resetowania hasła.') }}
             </div>
 
-            <!-- Session Status -->
             @if (session('status'))
                 <div class="alert alert-success mb-4">
                     {{ session('status') }}
@@ -27,8 +26,6 @@
 
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf
-
-                <!-- Email Address -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control @error('email') is-invalid @enderror"

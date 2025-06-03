@@ -3,7 +3,6 @@
         <h2 class="h4 text-color_2" >
             Usuń konto
         </h2>
-
         <p class="text-color_2 small mt-2">
             Jakieś ostrzeżenie
         </p>

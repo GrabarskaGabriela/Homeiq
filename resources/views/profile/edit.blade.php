@@ -12,9 +12,7 @@
 
 <main class="container flex-grow-1 my-1">
     <div class="row justify-content-center">
-        <!-- Główna zawartość -->
         <div class="col-md-9">
-            <!-- Sekcja danych osobowych -->
             <div class="card shadow-sm mb-4">
                 <div class="card-header bg-white">
                     <h4 class="mb-0"><i class="fas fa-user-edit me-2"></i>Dane osobowe</h4>
@@ -28,7 +26,6 @@
                 </div>
             </div>
 
-            <!-- Sekcja zmiany hasła -->
             <div class="card shadow-sm mb-4">
                 <div class="card-header bg-white">
                     <h4 class="mb-0"><i class="fas fa-key me-2"></i>Zmiana hasła</h4>
@@ -38,7 +35,6 @@
                 </div>
             </div>
 
-            <!-- Sekcja usuwania konta -->
             <div class="card shadow-sm border-danger">
                 <div class="card-header bg-white text-danger">
                     <h4 class="mb-0"><i class="fas fa-exclamation-triangle me-2"></i>Usuń konto</h4>

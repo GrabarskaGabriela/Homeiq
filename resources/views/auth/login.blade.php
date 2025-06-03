@@ -14,7 +14,6 @@
         <div class="card-body">
             <h3 class="card-title text-center mb-4">Logowanie</h3>
 
-            <!-- Session Status -->
             @if (session('status'))
                 <div class="alert alert-info mb-4">
                     {{ session('status') }}
@@ -23,8 +22,6 @@
 
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-
-                <!-- Email Address -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control @error('email') is-invalid @enderror"
@@ -38,7 +35,6 @@
                     @enderror
                 </div>
 
-                <!-- Password -->
                 <div class="mb-3">
                     <label for="password" class="form-label">Hasło</label>
                     <input type="password" class="form-control @error('password') is-invalid @enderror"
@@ -51,7 +47,6 @@
                     @enderror
                 </div>
 
-                <!-- Remember Me -->
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="remember" name="remember">
                     <label class="form-check-label" for="remember">Zapamiętaj mnie</label>

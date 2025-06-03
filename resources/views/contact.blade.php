@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomoc - Homeiq</title>
-    <link href="../includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         html, body {
@@ -60,8 +59,6 @@
         </div>
     </div>
 </main>
-
 @include('includes.footer')
-<script src="../includes/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

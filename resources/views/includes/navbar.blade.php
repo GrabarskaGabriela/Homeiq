@@ -1,17 +1,14 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <!-- Logo + napis -->
         <a class="navbar-brand fs-3 text-color" href="{{ url('/') }}" style="text-decoration: none;">
             <img src="{{ asset('images/includes/logo.png') }}" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
             Homeiq
         </a>
 
-        <!-- Przycisk do rozwijania menu -->
         <button class="navbar-toggler shadow-none border-1 border-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Menu rozwijane -->
         <div class="sidebar offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header text-color border-bottom">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Homeiq - Nieruchomości</h5>
@@ -35,9 +32,8 @@
 
                 <div class="d-flex flex-lg-row justify-content-center align-items-center gap-3">
                     @auth
-                        <!-- Widok dla zalogowanego użytkownika -->
                         <div class="dropdown">
-                            <a class="btn btn-gradient-nav text-color dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="btn btn-gradient-nav text-color dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ Auth::user()->first_name ?? 'Moje konto' }}
                             </a>
                             <ul class="dropdown-menu shadow-color">
@@ -60,7 +56,6 @@
                             </ul>
                         </div>
                     @else
-                        <!-- Widok dla niezalogowanego użytkownika -->
                         <a href="{{ route('login') }}" class="btn btn-gradient-nav text-color me-2">
                             Zaloguj się
                         </a>

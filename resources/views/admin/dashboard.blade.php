@@ -16,7 +16,7 @@
         <div class="col-md-9">
             <div class="card shadow-sm mb-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4 class="mb-0"><i class="fas fa-tachometer-alt me-2"></i>{{ __('messages.admin.dashboard') }}</h4>
+                    <h4 class="mb-0"><i class="fas fa-tachometer-alt me-2"></i>Panel administratora</h4>
                 </div>
 
                 <div class="card-body">

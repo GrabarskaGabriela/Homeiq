@@ -26,9 +26,9 @@ class Property extends Model
         'furnishings',
     ];
 
-    public function offers()
+    public function offer()
     {
-        return $this->hasMany(Offer::class);
+        return $this->hasOne(Offer::class);
     }
 
     public function transactions()

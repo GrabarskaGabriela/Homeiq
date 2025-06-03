@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="pl">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,11 +10,10 @@
 <body class="text-white">
 <main>
     <div class="page-container">
-
         <section class="hero py-5 text-color text-center">
             <div class="container">
-                <h1 class="display-4 fw-bold mb-4">Tysiące chomiczych norek na wyciągnięcie łapki.</h1>
-                <p class="lead mb-4">Znajdź idealną nieruchomość dla siebie - na sprzedaż i na wynajem</p>
+                <h1 class="display-4 fw-bold mb-4">Tysiące chomiczych norek na wyciągnięcie łapki</h1>
+                <p class="lead mb-4">Odkryj idealną nieruchomość dla swojej rodziny - kupno, wynajem, sprzedaż</p>
             </div>
         </section>
         <section class="py-5 text-white">
@@ -42,41 +41,25 @@
 
                 <div class="info-section mt-4">
                     <div id="people" class="info-text active">
-                        <h4>Znajdź swoją wymarzoną norkę</h4>
-                        <p>Przeglądaj tysiące ofert mieszkań, domów i lokali. Nasze zaawansowane filtry pomogą Ci znaleźć idealne miejsce do życia. Od przytulnych kawalerek po przestronne rodzinne gniazdka - wszystko w zasięgu łapki!
+                        <h4>Znajdź swój wymarzony dom</h4>
+                        <p>Dzięki inteligentnym filtrom wyszukiwania znajdziesz właściwą nieruchomość dostosowaną do
+                            Twoich potrzeb i budżetu.
                         </p>
                     </div>
                     <div id="calendar" class="info-text d-none">
-                        <h4>Wynajmuj bez zmartwień</h4>
-                        <p>Szukasz tymczasowego schroniska? Sprawdź naszą ofertę wynajmu! Weryfikowani właściciele, przejrzyste warunki i wsparcie na każdym etapie. Twoja nowa norka czeka już na Ciebie!</p>
+                        <h4>Wynajmuj z pewnością</h4>
+                        <p>Poszukujesz miejsca do wynajęcia? Oferujemy starannie sprawdzone nieruchomości od zaufanych
+                            właścicieli.</p>
                     </div>
                     <div id="car" class="info-text d-none">
-                        <h4>Sprzedawaj z łatwością</h4>
-                        <p>Czas zmienić norkę? Pomożemy Ci sprzedać swoją nieruchomość szybko i korzystnie. Profesjonalne zdjęcia, skuteczne ogłoszenia i pełne wsparcie prawne. Twoja norka znajdzie nowego właściciela w mgnieniu oka!</p>
+                        <h4>Sprzedawaj skutecznie</h4>
+                        <p>Zapewniamy kompleksową obsługę, dzięki naszemu doświadczeniu szybko znajdziesz odpowiedniego
+                            nabywcę!</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section class="py-5 bg-transparent">
-            <div class="container">
-                <h2 class="text-center mb-5">Zerknij jak to śmiga</h2>
-                <div class="row justify-content-center g-4">
-                    <div class="col-10 col-sm-6 col-md-4 d-flex justify-content-center">
-                        <img src="{{ asset('images/includes/zdjecie3.png') }}" class="img-fluid rounded shadow" alt="Wydarzenie 1">
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 d-flex justify-content-center">
-                        <img src="{{ asset('images/includes/zdjecie2.png') }}" class="img-fluid rounded shadow" alt="Wydarzenie 2">
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 d-flex justify-content-center">
-                        <img src="{{ asset('images/includes/zdjecie3.png') }}" class="img-fluid rounded shadow" alt="Wydarzenie 3">
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </div>
-
     <script>
         function showInfo(id) {
             const texts = document.querySelectorAll('.info-text');

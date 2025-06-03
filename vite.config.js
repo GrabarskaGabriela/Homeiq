@@ -6,6 +6,12 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
+                'resources/css/rent.css',
+                'resources/css/buy.css',
+                'resources/css/properties_create.css',
+                'resources/css/properties_show.css',
+                'resources/css/properties_edit.css',
+                'resources/css/my_offers.css',
                 'resources/js/app.js',
             ],
             refresh: true,

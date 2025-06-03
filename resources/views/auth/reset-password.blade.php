@@ -28,7 +28,6 @@
                 @csrf
                 <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
-                <!-- Email Address -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control @error('email') is-invalid @enderror"
@@ -42,7 +41,6 @@
                     @enderror
                 </div>
 
-                <!-- Password -->
                 <div class="mb-3">
                     <label for="password" class="form-label">Nowe hasło</label>
                     <input type="password" class="form-control @error('password') is-invalid @enderror"
@@ -55,7 +53,6 @@
                     @enderror
                 </div>
 
-                <!-- Confirm Password -->
                 <div class="mb-3">
                     <label for="password_confirmation" class="form-label">Potwierdź nowe hasło</label>
                     <input type="password" class="form-control"

@@ -27,7 +27,6 @@
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 
-                <!-- First Name -->
                 <div class="mb-3">
                     <label for="first_name" class="form-label">Imię</label>
                     <input type="text" class="form-control @error('first_name') is-invalid @enderror"
@@ -41,7 +40,6 @@
                     @enderror
                 </div>
 
-                <!-- Last Name -->
                 <div class="mb-3">
                     <label for="last_name" class="form-label">Nazwisko</label>
                     <input type="text" class="form-control @error('last_name') is-invalid @enderror"
@@ -55,7 +53,6 @@
                     @enderror
                 </div>
 
-                <!-- Phone Number -->
                 <div class="mb-3">
                     <label for="phone" class="form-label">Numer telefonu</label>
                     <input type="tel" class="form-control @error('phone') is-invalid @enderror"
@@ -69,7 +66,6 @@
                     @enderror
                 </div>
 
-                <!-- Email Address -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control @error('email') is-invalid @enderror"
@@ -83,7 +79,6 @@
                     @enderror
                 </div>
 
-                <!-- Password -->
                 <div class="mb-3">
                     <label for="password" class="form-label">Hasło</label>
                     <input type="password" class="form-control @error('password') is-invalid @enderror"
@@ -97,7 +92,6 @@
                     @enderror
                 </div>
 
-                <!-- Confirm Password -->
                 <div class="mb-3">
                     <label for="password_confirmation" class="form-label">Potwierdź hasło</label>
                     <input type="password" class="form-control"
@@ -105,7 +99,6 @@
                            placeholder="Powtórz hasło" required>
                 </div>
 
-                <!-- Terms -->
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input @error('terms') is-invalid @enderror"
                            id="terms" name="terms" required>
