@@ -26,7 +26,7 @@ Po uruchomieniu kontenerów należy otworzyć terminal i wykonać poniższe pole
 
 ```shell
 # Należy wejść do kontenera aplikacji
-docker exec -it homeiq-app-1 bash
+docker exec -it homeiq-main-app-1 bash
 
 # Należy nadać skryptowi start uprawnienia do uruchamiania
 chmod +x start.sh

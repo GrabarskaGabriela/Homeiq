@@ -26,6 +26,7 @@ return new class extends Migration
             $table->integer('floor');
             $table->enum('technical_condition', ['Do remontu', 'Do kapitalnego remontu', 'Budynek w stanie surowym', 'Gotowy do zamieszkania']);
             $table->enum('furnishings', ['Nieumeblowane', 'Częściowo umeblowane', 'W pełni umeblowane']);
+            $table->enum('status', ['available', 'pending', 'sold', 'rented'])->default('available');
             $table->timestamps();
         });
     }

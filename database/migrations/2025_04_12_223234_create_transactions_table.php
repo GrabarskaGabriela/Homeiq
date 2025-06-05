@@ -14,8 +14,8 @@ return new class extends Migration
             $table->unsignedBigInteger('owner_id');
             $table->unsignedBigInteger('user_id');
             $table->date('transaction_date');
+            $table->enum('status', [ 'pending','success', 'failed' ]);
             $table->timestamps();
-
             $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

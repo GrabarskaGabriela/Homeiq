@@ -6,18 +6,18 @@ use App\Models\Event;
 use App\Models\Property;
 use App\Models\Offer;
 use App\Models\OfferPicture;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 
-
 class PropertyController extends Controller
 {
     public function create()
     {
-         return view('properties.create');
+        return view('properties.create');
     }
 
     public function store(Request $request)
@@ -36,14 +36,12 @@ class PropertyController extends Controller
             'floor' => 'required|integer',
             'technical_condition' => 'required|in:Do remontu,Do kapitalnego remontu,Budynek w stanie surowym,Gotowy do zamieszkania',
             'furnishings' => 'required|in:Nieumeblowane,Częściowo umeblowane,W pełni umeblowane',
-
             'offer_title' => 'required|string|max:255',
             'description' => 'required|string',
             'offer_type' => 'required|in:Sprzedaż,Wynajem',
             'price' => 'required|integer|min:0',
             'deposit' => 'required|integer|min:0',
             'rent' => 'required|integer|min:0',
-
             'pictures' => 'required|array|min:1',
             'pictures.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
@@ -76,7 +74,9 @@ class PropertyController extends Controller
                 'price' => $request->price,
                 'deposit' => $request->deposit,
                 'rent' => $request->rent,
+                'status' => 'available', // Dodajemy domyślny status
             ]);
+
             if ($request->hasFile('pictures')) {
                 foreach ($request->file('pictures') as $picture) {
                     $path = $picture->store('offers/' . $offer->id, 'public');
@@ -92,10 +92,8 @@ class PropertyController extends Controller
 
             return redirect()->route('properties.show', $offer->id)
                 ->with('success', 'Nieruchomość i oferta zostały pomyślnie dodane!');
-
         } catch (\Exception $e) {
             DB::rollback();
-
             return back()->withInput()
                 ->with('error', 'Wystąpił błąd podczas dodawania nieruchomości: ' . $e->getMessage());
         }
@@ -127,21 +125,18 @@ class PropertyController extends Controller
             'street' => 'required|string|max:255',
             'building_number' => 'required|string|max:10',
             'apartment_number' => 'nullable|integer|min:1',
-
             'type' => 'required|in:Dom,Mieszkanie,Lokal użytkowy',
             'surface' => 'required|numeric|min:1|max:9999.99',
             'number_of_rooms' => 'required|integer|min:1|max:50',
             'floor' => 'required|integer|min:-5|max:100',
             'technical_condition' => 'required|in:Do remontu,Do kapitalnego remontu,Budynek w stanie surowym,Gotowy do zamieszkania',
             'furnishings' => 'required|in:Nieumeblowane,Częściowo umeblowane,W pełni umeblowane',
-
             'offer_title' => 'required|string|max:255',
             'offer_type' => 'required|in:Sprzedaż,Wynajem',
             'description' => 'required|string|min:50|max:2000',
             'price' => 'required|numeric|min:0|max:999999999',
             'deposit' => 'required|numeric|min:0|max:999999999',
             'rent' => 'required|numeric|min:0|max:999999999',
-
             'pictures.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'deleted_pictures' => 'nullable|string'
         ], [
@@ -199,7 +194,7 @@ class PropertyController extends Controller
                 $deletedPictureIds = array_filter($deletedPictureIds);
 
                 if (!empty($deletedPictureIds)) {
-                    $deletedPictures = PropertyPicture::whereIn('id', $deletedPictureIds)
+                    $deletedPictures = OfferPicture::whereIn('id', $deletedPictureIds)
                         ->where('offer_id', $offer->id)
                         ->get();
 
@@ -214,11 +209,10 @@ class PropertyController extends Controller
             if ($request->hasFile('pictures')) {
                 foreach ($request->file('pictures') as $picture) {
                     $filename = time() . '_' . uniqid() . '.' . $picture->getClientOriginalExtension();
-                    $path = $picture->storeAs('property_pictures', $filename, 'public');
-                    PropertyPicture::create([
+                    $path = $picture->storeAs('offers/' . $offer->id, $filename, 'public');
+                    OfferPicture::create([
                         'offer_id' => $offer->id,
                         'path' => $path,
-                        'filename' => $filename
                     ]);
                 }
             }
@@ -226,7 +220,6 @@ class PropertyController extends Controller
             return redirect()
                 ->route('properties.show', $offer->id)
                 ->with('success', 'Nieruchomość została pomyślnie zaktualizowana!');
-
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Błąd podczas aktualizacji nieruchomości:', [
@@ -239,6 +232,7 @@ class PropertyController extends Controller
                 ->with('error', 'Wystąpił błąd podczas aktualizacji nieruchomości. Spróbuj ponownie.');
         }
     }
+
     public function myOffers()
     {
         $offers = Offer::where('owner_id', Auth::id())
@@ -248,6 +242,7 @@ class PropertyController extends Controller
 
         return view('offers.my-offers', compact('offers'));
     }
+
     public function destroy(Offer $offer)
     {
         DB::beginTransaction();
@@ -277,18 +272,19 @@ class PropertyController extends Controller
 
             return redirect()->route('offers.my-offers')
                 ->with('success', 'Oferta została pomyślnie usunięta!');
-
         } catch (\Exception $e) {
             DB::rollback();
-
             return back()
                 ->with('error', 'Wystąpił błąd podczas usuwania oferty: ' . $e->getMessage());
         }
     }
+
     public function forSale(Request $request)
     {
         $query = Offer::with(['property', 'owner'])
-            ->where('offer_type', 'Sprzedaż');
+            ->where('offer_type', 'Sprzedaż')
+            ->where('status', 'available');
+
         if ($request->filled('type')) {
             $query->whereHas('property', function($q) use ($request) {
                 $q->where('type', $request->type);
@@ -355,10 +351,12 @@ class PropertyController extends Controller
 
         return view('buy', compact('offers'));
     }
+
     public function forRent(Request $request)
     {
         $query = Offer::with(['property', 'owner'])
-            ->where('offer_type', 'Wynajem');
+            ->where('offer_type', 'Wynajem')
+            ->where('status', 'available'); // Dodajemy filtr statusu
 
         if ($request->filled('type')) {
             $query->whereHas('property', function($q) use ($request) {
@@ -426,9 +424,24 @@ class PropertyController extends Controller
 
         return view('rent', compact('offers'));
     }
+
     public function show($id)
     {
         $offer = Offer::with(['property', 'owner'])->findOrFail($id);
+
+        if ($offer->status !== 'available' && Auth::check()) {
+            $hasTransaction = Transaction::where('property_id', $offer->property_id)
+                ->where('user_id', Auth::id())
+                ->where('status', 'pending')
+                ->exists();
+
+            if (!$hasTransaction && Auth::id() !== $offer->owner_id) {
+                return redirect()->route('buy')->with('error', 'Ta oferta nie jest dostępna.');
+            }
+        } elseif ($offer->status !== 'available' || $offer->property->status !== 'available' && !Auth::check()) {
+            return redirect()->route('buy')->with('error', 'Ta oferta nie jest dostępna.');
+        }
+
         return view('properties.show', compact('offer'));
     }
 }

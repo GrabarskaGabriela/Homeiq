@@ -24,9 +24,15 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/properties/{id}', [PropertyController::class, 'update'])->name('properties.update');
     Route::get('/properties/{property}', [PropertyController::class, 'show'])->name('properties.show');
     Route::post('/properties', [PropertyController::class, 'store'])->name('properties.store');
+    Route::post('/properties/{offer}/transaction', [TransactionController::class, 'create'])->name('transactions.create');
 
     Route::delete('/offers/{offer}', [PropertyController::class, 'destroy'])->name('offers.destroy');
     Route::get('/my-offers', [PropertyController::class, 'myOffers'])->name('offers.my-offers');
+
+    Route::post('/transactions/create/{offer}', [TransactionController::class, 'create'])->name('transactions.create');
+    Route::get('/transactions/pending', [TransactionController::class, 'pending'])->name('transactions.pending');
+    Route::get('/transactions/{transaction}/confirm', [TransactionController::class, 'showConfirmation'])->name('transactions.confirm.show');
+    Route::post('/transactions/{transaction}/confirm', [TransactionController::class, 'confirm'])->name('transactions.confirm');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -34,7 +40,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
-    Route::get('/admin/dashboard', function () {return view('admin.dashboard');})->name('admin.dashboard');
     Route::get('/properties', [AdminController::class, 'properties'])->name('admin.properties');
     Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
     Route::get('/offers', [AdminController::class, 'offers'])->name('admin.offers');

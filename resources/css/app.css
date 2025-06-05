@@ -144,9 +144,6 @@ body {
     padding: 15px;
     border-radius: 12px 12px 0 0;
 }
-.shadow-s {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
-}
 .card-header {
     background: linear-gradient(to right, 	#c0a891, #b6977d) !important;
     padding: 15px;
@@ -161,8 +158,9 @@ main {
 }
 
 footer {
-    flex-shrink: 0;
-    background-color: #121929;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 footer h5 {
@@ -172,39 +170,6 @@ footer h5 {
     position: relative;
     padding-bottom: 0.5rem;
 }
-
-footer h5::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 50px;
-    height: 2px;
-    background: #0d6efd;
-}
-
-footer .nav-link {
-    padding: 0.25rem 0;
-    color: #adb5bd !important;
-    font-size: 0.9rem;
-    transition: all 0.3s;
-}
-
-footer .nav-link:hover {
-    color: #0d6efd !important;
-    padding-left: 5px;
-}
-
-.social-icons a {
-    display: inline-block;
-    transition: all 0.3s;
-}
-
-.social-icons a:hover {
-    transform: translateY(-3px);
-    color: #0d6efd !important;
-}
-
 /* Styl paska bocznego dla mniejszych ekranów */
 @media (max-width: 991px) {
     .sidebar {

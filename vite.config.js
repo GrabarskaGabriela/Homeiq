@@ -12,6 +12,7 @@ export default defineConfig({
                 'resources/css/properties_show.css',
                 'resources/css/properties_edit.css',
                 'resources/css/my_offers.css',
+                'resources/css/admin.css',
                 'resources/js/app.js',
             ],
             refresh: true,

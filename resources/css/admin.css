@@ -1,0 +1,272 @@
+.body {
+    background: linear-gradient(135deg, #f5f1eb 0%, #e8dcc6 100%);
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Kolory tekstu */
+.text-color {
+    color: whitesmoke;
+}
+.text-color_2 {
+    color: #6f4e37;
+}
+
+/* Navbar - pełna szerokość */
+.navbar {
+    background: rgba(192, 168, 145, 0.95) !important;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    top: 0;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    z-index: 1000;
+    justify-content: center;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: white !important;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar-nav .nav-link {
+    color: whitesmoke !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #6f4e37 !important;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+/* Buttony gradientowe */
+.btn-gradient {
+    background: linear-gradient(to right, #c0a891, #b6977d) !important;
+    color: whitesmoke !important;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(192, 168, 145, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(to right, #e1c6a9, #ecbfa2) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(192, 168, 145, 0.4);
+}
+
+.btn-gradient-nav {
+    background: linear-gradient(to right, #c0a891, #b6977d) !important;
+    color: whitesmoke !important;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-gradient-nav:hover {
+    background: linear-gradient(to right, #e1c6a9, #ecbfa2) !important;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #c0a891, #b6977d) !important;
+    border: none;
+    border-radius: 12px;
+    padding: 0.7rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(192, 168, 145, 0.3);
+    color: white !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(192, 168, 145, 0.4);
+    background: linear-gradient(to right, #e1c6a9, #ecbfa2) !important;
+}
+
+.btn-outline-secondary {
+    border: 2px solid #b6977d;
+    color: #6f4e37;
+    background: transparent;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    background: linear-gradient(to right, #c0a891, #b6977d) !important;
+    color: white !important;
+    border-color: #c0a891;
+}
+
+/* Karty */
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(192, 168, 145, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(192, 168, 145, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(192, 168, 145, 0.15);
+}
+
+.card-header {
+    background: linear-gradient(to right, #c0a891, #b6977d) !important;
+    padding: 15px;
+    border-radius: 12px 12px 0 0 !important;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: whitesmoke !important;
+    border: none;
+}
+
+/* Kontenery - pełna szerokość */
+.container {
+    max-width: 100% !important;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.container-fluid {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Tabele - pełna szerokość */
+.table-responsive {
+    max-height: 500px;
+    overflow-y: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(192, 168, 145, 0.1);
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background-color: #6f4e37 !important;
+    color: white !important;
+    border: none;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px 15px;
+    top: 0;
+    z-index: 10;
+}
+
+
+
+
+.table tbody td {
+    padding: 12px 10px;
+    border-color: rgba(192, 168, 145, 0.2);
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Formularz filtrów */
+.form-select, .form-control {
+    border: 2px solid rgba(192, 168, 145, 0.3);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: #c0a891;
+    box-shadow: 0 0 0 0.2rem rgba(192, 168, 145, 0.25);
+}
+
+.form-label {
+    color: #6f4e37;
+    font-weight: 600;
+}
+
+/* Chart container */
+#typeAnalysisChart {
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Export button */
+.export-btn {
+    background: linear-gradient(to right, #28a745, #20c997) !important;
+    border: none;
+    color: white !important;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.export-btn:hover {
+    background: linear-gradient(to right, #218838, #1ea97c) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+}
+
+/* Pagination */
+.pagination .page-link {
+    color: #6f4e37;
+    border-color: rgba(192, 168, 145, 0.3);
+}
+
+.pagination .page-link:hover {
+    background-color: rgba(192, 168, 145, 0.1);
+    border-color: #c0a891;
+}
+
+.pagination .page-item.active .page-link {
+    background: linear-gradient(to right, #c0a891, #b6977d);
+    border-color: #c0a891;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .table-responsive {
+        font-size: 0.85rem;
+    }
+
+    .card-header {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
+
+/* Główna zawartość */
+main {
+    flex-grow: 1;
+    padding-bottom: 30px;
+}

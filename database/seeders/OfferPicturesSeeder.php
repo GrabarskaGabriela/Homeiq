@@ -11,6 +11,9 @@ class OfferPicturesSeeder extends Seeder
 {
     public function run(): void
     {
+        if (Storage::disk('public')->exists('offer_pictures')) {
+            Storage::disk('public')->deleteDirectory('offer_pictures');
+        }
         if (!Storage::disk('public')->exists('offer_pictures')) {
             Storage::disk('public')->makeDirectory('offer_pictures');
         }
@@ -66,7 +69,7 @@ class OfferPicturesSeeder extends Seeder
             ],
             // Oferty na sprzedaż (11-20)
             11 => [
-                'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800',
+                'https://czasdzieci.pl/pliki/bajki/480w270/f_ba_3632_91a68.png',
                 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800',
                 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
                 'https://images.unsplash.com/photo-1472224371017-08207f84aaae?w=800'

@@ -14,7 +14,7 @@ class AdminSeeder extends Seeder
             'first_name' => 'Admin',
             'last_name' => 'Homeiq',
             'email' => 'admin@homeiq.com',
-            'phone' => '123432101',
+            'phone' => '123432187',
             'password' => Hash::make('Password'),
             'role' => 'admin',
             'email_verified_at' => now(),

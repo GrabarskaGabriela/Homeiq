@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('deposit');
             $table->integer('rent');
+            $table->enum('status', ['available', 'pending', 'unavailable'])->default('available');
             $table->timestamps();
-
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');
         });

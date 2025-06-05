@@ -220,6 +220,41 @@
                     </div>
                 </div>
             @endif
+
+                <!-- Istniejąca karta kontaktowa i opcje dla właściciela -->
+                @if(auth()->check() && auth()->id() !== $offer->owner_id)
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-handshake feature-icon"></i>Dokonaj transakcji
+                            </h5>
+                            <form action="{{ route('transactions.create', $offer->id) }}" method="POST">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="transaction_type" class="form-label">Typ transakcji</label>
+                                    <select name="transaction_type" id="transaction_type" class="form-select" required>
+                                        <option value="purchase">Kupno</option>
+                                        @if($offer->rent > 0)
+                                            <option value="rental">Wynajem</option>
+                                        @endif
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-check me-2"></i>Zainicjuj transakcję
+                                </button>
+                            </form>
+                            @if($errors->any())
+                                <div class="alert alert-danger mt-3">
+                                    <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                @endif
         </div>
     </div>
 </div>

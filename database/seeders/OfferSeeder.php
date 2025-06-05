@@ -13,7 +13,7 @@ class OfferSeeder extends Seeder
         $offers = [
             // OFERTY WYNAJMU (property_id 1-10)
             [
-                'owner_id' => 1, // Zakładając że masz użytkowników o id 1-20
+                'owner_id' => 1,
                 'property_id' => 1,
                 'offer_title' => 'Przytulne mieszkanie 2-pokojowe w centrum Poznania',
                 'offer_type' => 'Wynajem',

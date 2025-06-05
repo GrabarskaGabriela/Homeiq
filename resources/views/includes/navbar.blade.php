@@ -9,13 +9,9 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="sidebar offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header text-color border-bottom">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Homeiq - Nieruchomości</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
 
-            <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+
+
                 <ul class="navbar-nav justify-content-center align-items-center fs-4 flex-grow-1 pe-3 text-color">
                     <li class="nav-item mx-2">
                         <a class="btn btn-gradient-nav text-color me-2" href="{{ route('properties.buy') }}">Kupuję</a>
@@ -38,12 +34,13 @@
                             </a>
                             <ul class="dropdown-menu shadow-color">
                                 <li><a class="dropdown-item text-color"  href="{{ route('offers.my-offers') }}"><i class="fas fa-list me-2"></i>Moje ogłoszenia</a></li>
+                                <li><a class="dropdown-item text-color" href="{{ route('transactions.pending') }}"><i class="fas fa-credit-card-alt me-2" aria-hidden="true"></i>Transakcje</a></li>
                                 <li><a class="dropdown-item text-color" href="{{ route('profile.edit') }}"><i class="fas fa-user-cog me-2"></i>Ustawienia</a></li>
                                 <li><a class="dropdown-item text-color" href="{{ route('help') }}"><i class="fas fa-question-circle me-2"></i>Pomoc</a></li>
-                                <li><a class="dropdown-item text-color" href="{{ route('contact') }}"><i class="fas fa-question-circle me-2"></i>Kontakt</a></li>
+                                <li><a class="dropdown-item text-color" href="{{ route('contact') }}"><i class="fas  fa-phone me-2"></i>Kontakt</a></li>
                                 @if(Auth::user()->role === 'admin')
                                     <li class="nav-item">
-                                        <a class="dropdown-item text-color" href="{{ route('admin.dashboard') }}"><i class="fa fa-file-text me-2" aria-hidden="true"></i>Raporty</a>
+                                        <a class="dropdown-item text-color" href="{{ route('admin.properties') }}"><i class="fa fa-file-text me-2" aria-hidden="true"></i>Raporty</a>
                                     </li>
                                 @endif
                                 <li><hr class="dropdown-divider"></li>
@@ -61,7 +58,5 @@
                         </a>
                     @endauth
                 </div>
-            </div>
-        </div>
     </div>
 </nav>
